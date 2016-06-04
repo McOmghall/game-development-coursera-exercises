@@ -1,0 +1,66 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage[utf8]{inputenc}
+
+
+\begin{document}
+%Header-Make sure you update this information!!!!
+\large\textbf{A Fireball for Your Friends} \hfill \\
+\normalsize Team Flames: Pedro Montoto García (1MA) \\
+A \textbf{3rd person duel shooter with magic/medieval elements instead of guns} \\
+Focusing on \textit{1v1 PvP online encounters} \\
+For \textit{people between ages 12-34 who love competitive gaming} \\
+On \textit{the Nintendo NX (console and handheld) and PC} \\
+
+\setlength\parindent{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+\section*{High Concept Statement}
+
+This is a multiplayer/online game where two players, as wizards, are put to duel on a small scenario where they shoot colourful and spectacular spells to kill each other. The players must feel empowered all the times to perform awesome feats through their mastery of mechanics, therefore the competitive element must be the focus throughout development: classic elements of competitive gaming are limits on the frequency of spells (i.e. cooldowns and mana counters) and the ability to counter enemy setups (i.e. reflecting spells, interrupting enemy casts or tricking the enemy into making the wrong move).
+
+We've yet to test the gameplay elements but we're thinking on using a damage model like the one in the Super Smash Bros series, where increasing damage leads to increasing returns for the attacking player therefore leading to emotion intensity peaks before each takedown. If that doesn't work probably a standard life meter would be better\footnote{A decision on this element must be taken ASAP as this guides the rest of the design decisions.}. 
+
+The objectives may vary on each confrontation, as seen on classic shooting game modes like CTF and Deathmatch. Given the magic element present in the lore these will be flavoured accordingly.
+
+\newpage
+
+\section*{Features and Scope}
+
+MVP features:
+
+\begin{enumerate}
+ 	\item[Local Multiplayer] Allowing people to get together in their homes and play your game is a very good method for creating a pleasant experience they'll remember.
+	\item[3rd Person Action] 3D graphics and gameplay feedback elements must be adjusted to fit this kind of UX.
+	\item[Hat Market] People want their wizard to be different from other people's, obviously.
+\end{enumerate}
+
+Extra features:
+
+\begin{enumerate}
+	\item[Online Play] Players connect to a server where they can fight other players from all over the globe. As a modern game this should be achieved through automated matchmaking but also giving the players the ability to fight people they know\footnote{As this is 1v1 some modified versions of ELO can work quite well}.
+	\item[Training Mode] Play against configurable bots to test spells and your own skills.
+	\item[Modding] Let people create their own modes, spells, maps, aesthetic content, etc, expose some game data to be easily changed to add them to the game
+	\item[Leaderboards] Show everyone how good you are!
+\end{enumerate}
+
+AAA features:
+
+\begin{enumerate}
+	\item[Tournaments] Host tournaments for the best players. Stream them through in-game features: give people more reasons for being better.
+	\item[Story Mode] A story mode that uses the already created gameplay elements can be easily integrated into the game, but it shouldn't be thought as just a wrapper for matches against bots (as usually seen in fighting and RTS games).
+\end{enumerate}
+
+\newpage
+\section*{State of the Art}
+\subsection*{The Competition}
+This game competes directly with other shooters such as Call of Duty, Battlefield, S3 League (also 3rd person), MOBAs and other highly-competitive online games like DOTA2 and LOL, and also with medieval/magic themed 3rd person combat games like Dark Souls.
+
+\subsection*{Innovation/Product differentiation}
+We believe this particular combination of highly competitive gaming, 3rd person shooting and magic theme hasn't been tried, therefore taking the maket is mostly a problem of getting a tight gameplay that creates tension with satisfactory resolution for all parts involved and using iconic art and sound.
+
+
+\end{document}
