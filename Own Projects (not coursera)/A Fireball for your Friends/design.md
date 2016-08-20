@@ -29,7 +29,7 @@ Each attack modifies the Combo bar the following way:
 
 The Combo bar works as a point bar that assesses player performance, allowing her to measure her own skill. Risk is that the player might fail a lot of attacks early on, giving her a negative score and adding frustration (needs testing).
 
-Every multiple of 20, and randomely with a given probabilty, the following power ups:
+Every 20 points earned inside a 3-second window, and randomely with a given probabilty, the player receives one of the following power ups:
 
 - Temporary homing normal fireballs
 - Temporary piercing normal fireballs (can hit more than once)
