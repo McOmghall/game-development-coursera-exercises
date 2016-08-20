@@ -21,9 +21,23 @@ The mage can resist 5 enemy attacks before diying.
 
 ###Combos and Power-ups###
 
-Each successful attack on an enemy fills up a combo bar in the following manner: (TBD)
+Each attack modifies the Combo bar the following way:
 
-For each of the main points of the combo bar you'll receive, randomely with the given probabilty, the following power ups (TBD):
+- Every hit on an enemy adds 1 to the bar
+- Every attack that doesn't hit anything subtracts 2 to the bar
+- Every 10 successful attacks (fails irrelevant here) adds an explosive fireball to your ammo (starting the game with 0)
+
+The Combo bar works as a point bar that assesses player performance, allowing her to measure her own skill. Risk is that the player might fail a lot of attacks early on, giving her a negative score and adding frustration (needs testing).
+
+Every multiple of 20, and randomely with a given probabilty, the following power ups:
+
+- Temporary homing normal fireballs
+- Temporary piercing normal fireballs (can hit more than once)
+- Add 1 more hit to your health
+- 3x fireball for a long time (can stack with itself)
+- Fireball shield
+
+A hidden mechanic to be discovered by the player is the possibility to hit incoming fireballs with your own, to make space to move your character.
 
 ###Enemies and bosses###
 
@@ -33,6 +47,9 @@ The enemy generation algorithm has to be tweaked yet, but the general idea is th
 - More complex mob, throws slow fireballs in a circle
 - More complex mob, throws fireballs in a spiral continuously
 - More complex mob, throws formations of fireballs with geometric shapes (squares, triangles)
+- Difficult mob, throws a quick fireball taking in account your current speed to fire where you're going to be.
+
+As for the bosses a simple idea to create complexity is a boss that invokes different mobs and attacks you with a simple own pattern. Other bosses should have distinct animations for different patterns to allow the player to prepare, therefore they involve more modelling work.
 
 ###Level generation###
 
