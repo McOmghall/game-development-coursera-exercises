@@ -27,7 +27,12 @@ For each of the main points of the combo bar you'll receive, randomely with the 
 
 ###Enemies and bosses###
 
-(TBD)
+The enemy generation algorithm has to be tweaked yet, but the general idea is that the game generates bullet patterns that are progressively more complex combining simple patterns that come from aesthetically distinct enemies:
+
+- Basic mob, throws regularly a slow fireball at your current position
+- More complex mob, throws slow fireballs in a circle
+- More complex mob, throws fireballs in a spiral continuously
+- More complex mob, throws formations of fireballs with geometric shapes (squares, triangles)
 
 ###Level generation###
 
