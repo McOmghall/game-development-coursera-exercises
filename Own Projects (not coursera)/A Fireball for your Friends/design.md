@@ -1,7 +1,7 @@
 A Fireball for your Friends GDD
 =====
 
-A bullet hell game for PC/MAC/Linux, on 3D browser engines.
+A bullet hell game for PC/MAC/Linux, on 3D browser engines, played with keyboard and mouse or a gamepad (with at least a crosspad and a joystick or 2 joysticks, and 2 action buttons).
 
 Introduction
 -----
@@ -13,7 +13,7 @@ The game drops you into the action immediately surrounding you with attacking en
 How to play
 -----
 
-You see your mage from above all the time, and the camera moves a bit following the main crosshair which is controlled with the mouse, to allow you to control the direction your mage is facing and to be able to see more what's ahead of you and less what's behind you giving the opportunity to create tension attacking the main character from unexpected directions. 
+You see your mage from above all the time, and the camera moves a bit following the main crosshair which is controlled with the mouse or the main analog joystick on the gamepad, to allow you to control the direction your mage is facing and to be able to see more what's ahead of you and less what's behind you giving the opportunity to create tension attacking the main character from unexpected directions. 
 
 WASD or the main cross-pad of the controller move the character in the traditional 8 directions (up, down, left, right and 2-combinations of them) relative to the camera, the M1 (mouse main button) or the main fire button allow to fire normal fireballs that can have power-ups, and M2 (mouse secondary button) allow you to fire an special explosive fireball that makes a lot of damage in an area.
 
