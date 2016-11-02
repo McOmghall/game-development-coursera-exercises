@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[a4paper,pdftex]{geometry}	% Use A4 paper margins
+\usepackage[english,spanish]{babel}
+\usepackage{xcolor} % Required for specifying custom colors
+\usepackage{fix-cm} % Allows increasing the font size of specific fonts beyond LaTeX default specifications
+
+\setlength{\oddsidemargin}{0mm} % Adjust margins to center the colored title box
+\setlength{\evensidemargin}{0mm} % Margins on even pages - only necessary if adding more content to this template
+
+\setlength{\voffset}{-1.2cm}
+\setlength{\textheight}{650pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.5}
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Color of the box surrounding the title - these values can be changed to give the box a different color	
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{A Fireball for Your Friends}
+\rhead{Concept Proposal Document}
+\rfoot{\thepage}
+
+\makeindex
+
+\begin{document}
+
+\thispagestyle{empty} % Remove page numbering on this page
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\colorbox{grey}{
+	\parbox[t]{1.0\linewidth}{
+		\fontsize{50pt}{30pt}\selectfont % The first argument for fontsize is the font size of the text and the second is the line spacing - you may need to play with these for your particular title
+		\vspace*{0.7cm} % Space between the start of the title and the top of the grey box
+		
+		A Fireball \\ 
+		for Your Friends \\ 
+        \fontsize{30pt}{34pt}\selectfont
+        Concept Proposal Document		
+		\par
+		
+		\vspace*{0.4cm} % Space between the end of the title and the bottom of the grey box
+	}
+}
+
+\vspace*{0.4cm} 
+{\large Un \textbf{juego de duelos mágicos multijugador en 3ª persona}}
+
+\begin{spacing}{0.6}
+Target: \textit{chicos entre 16-22 años, amantes de los juegos competitivos, mid-core} 
+
+Plataforma: \textit{Nintendo Switch (consola y portátil)}
+\end{spacing}
+
+
+\vfill % Space between the title box and author information
+
+{\centering \hfill \copyright 2016 Pedro Montoto García} \\
+
+%----------------------------------------------------------------------------------------
+
+\clearpage % Whitespace to the end of the page
+
+\printindex
+
+\clearpage % Whitespace to the end of the page
+
+\setlength{\voffset}{0cm}
+\setlength{\parindent}{1cm}
+\setcounter{page}{1}
+
+\section{Concepto General}
+
+Un juego multijugador (pantalla partida y online) en tercera persona donde dos equipos cada uno con de 1 a 3 magos duelean en un pequeño escenario usando hechizos variados y espectaculares. Cada jugador deberá componer su biblioteca de hechizos en cada encuentro, escogiéndolos según la utilidad que tengan para contrarrestar al enemigo y sinergizar con sus aliados. 
+
+Cada encuentro tendrá sus objetivos, i.e. aniquilación, capturar la bandera, defender un objetivo, football..., y su duración será corta, i.e. entre 5 y 10 minutos, para asegurar que todo el mundo pueda disfrutar de al menos una partida rápida, pero que ésta sea intensa.
+
+La experiencia de juego se centra en hacer que el jugador sienta su maestría al derrotar a enemigos usando los diferentes hechizos, evitándolos a su vez. El loop de juego principal estará en dominar los diferentes hechizos y sus sinergias via el empoderamiento del jugador.
+
+\newpage
+
+\section{Features and Scope}
+
+MVP features:
+
+\begin{enumerate}
+ 	\item[Local Multiplayer] Allowing people to get together in their homes and play your game is a very good method for creating a pleasant experience they'll remember.
+	\item[3rd Person Action] 3D graphics and gameplay feedback elements must be adjusted to fit this kind of UX.
+	\item[Hat Market] People want their wizard to be different from other people's, obviously.
+\end{enumerate}
+
+Extra features:
+
+\begin{enumerate}
+	\item[Online Play] Players connect to a server where they can fight other players from all over the globe. As a modern game this should be achieved through automated matchmaking but also giving the players the ability to fight people they know\footnote{As this is 1v1 some modified versions of ELO can work quite well}.
+	\item[Training Mode] Play against configurable bots to test spells and your own skills.
+	\item[Modding] Let people create their own modes, spells, maps, aesthetic content, etc, expose some game data to be easily changed to add them to the game
+	\item[Leaderboards] Show everyone how good you are!
+\end{enumerate}
+
+AAA features:
+
+\begin{enumerate}
+	\item[Tournaments] Host tournaments for the best players. Stream them through in-game features: give people more reasons for being better.
+	\item[Story Mode] A story mode that uses the already created gameplay elements can be easily integrated into the game, but it shouldn't be thought as just a wrapper for matches against bots (as usually seen in fighting and RTS games).
+\end{enumerate}
+
+\newpage
+\section{State of the Art}
+\subsection{The Competition}
+This game competes directly with other shooters such as Call of Duty, Battlefield, S3 League (also 3rd person), MOBAs and other highly-competitive online games like DOTA2 and LOL, and also with medieval/magic themed 3rd person combat games like Dark Souls.
+
+\subsection{Innovation/Product differentiation}
+We believe this particular combination of highly competitive gaming, 3rd person shooting and magic theme hasn't been tried, therefore taking the maket is mostly a problem of getting a tight gameplay that creates tension with satisfactory resolution for all parts involved and using iconic art and sound.
+
+
+\end{document}
