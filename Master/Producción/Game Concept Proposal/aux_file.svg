@@ -1,0 +1,10 @@
+<svg height="200" width="200">
+<circle cx="50" cy="45" r="4" fill="black" />
+<text x="65" y="50" fill="black">I love SVG!</text>
+<circle cx="50" cy="65" r="4" fill="black" />
+<text x="65" y="70" fill="black">I love Inkscape!</text>
+<circle cx="50" cy="85" r="4" fill="black" />
+<text x="65" y="90" fill="black">I love GIMP!</text>
+<circle cx="50" cy="105" r="4" fill="black" />
+<text x="65" y="110" fill="black">...</text>
+</svg>
