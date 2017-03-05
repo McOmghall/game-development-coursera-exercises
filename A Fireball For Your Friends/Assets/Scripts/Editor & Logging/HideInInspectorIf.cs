@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR 
+using UnityEngine;
 using System;
 using UnityEditor;
 using System.Collections;
@@ -16,7 +17,6 @@ public class HideInInspectorIf : PropertyAttribute {
     }
 }
 
-#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(HideInInspectorIf))]
 public class HideInInspectorIfPropertyDrawer : PropertyDrawer {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {

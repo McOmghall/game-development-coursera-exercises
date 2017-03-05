@@ -24,6 +24,10 @@ public class NormalFireball : ShootableFireball {
       if (distanceToTargetOriginal * distanceToTargetOriginal < distanceToOriginSquared) {
         GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, 0, GetComponent<Rigidbody>().velocity.z);
       }
+
+      if (distanceToOriginSquared > 5) {
+        transform.position = new Vector3(transform.position.x, 2, transform.position.z);
+      }
     }
   }
 

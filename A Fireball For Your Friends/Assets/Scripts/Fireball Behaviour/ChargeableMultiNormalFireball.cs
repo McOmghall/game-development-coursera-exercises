@@ -21,10 +21,10 @@ public class ChargeableMultiNormalFireball : Fireball {
         if (Time.time > nextFireball && transform.childCount < maxChargedFireballs) {
           nextFireball = Time.time + timeBetweeenFireballsOverTime.Evaluate(transform.childCount * (MaxDefinedFireball() / maxChargedFireballs));
           Quaternion rotation = Quaternion.Euler(0, transform.childCount * (360 / maxChargedFireballs), 0);
-          ShootableFireball managedFireball = UnityEngine.Object.Instantiate(managedFireballPrefab, transform.position + rotation * transform.forward * fireCircleRadius, transform.rotation) as ShootableFireball;
+          ShootableFireball managedFireball = Instantiate(managedFireballPrefab, transform.position + rotation * transform.forward * fireCircleRadius, transform.rotation) as ShootableFireball;
           managedFireball.transform.parent = transform;
         } else if (transform.childCount == maxChargedFireballs) {
-          Transform shooting = transform.GetChild(UnityEngine.Random.Range(0, transform.childCount + 1));
+          Transform shooting = transform.GetChild(UnityEngine.Random.Range(0, transform.childCount));
           shooting.GetComponent<Fireball>().fireTo(target);
           shooting.parent = null;
         }
@@ -50,7 +50,7 @@ public class ChargeableMultiNormalFireball : Fireball {
   }
 
   private float MaxDefinedFireball() {
-    return new List<Keyframe>(timeBetweeenFireballsOverTime.keys).Select<Keyframe, float>((Keyframe k) => k.time).Max();
+    return new List<Keyframe>(timeBetweeenFireballsOverTime.keys).Select((Keyframe k) => k.time).Max();
   }
 
   internal override void fireTo(Vector3 target) {

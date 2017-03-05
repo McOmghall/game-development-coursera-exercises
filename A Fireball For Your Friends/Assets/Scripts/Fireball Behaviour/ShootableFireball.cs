@@ -17,7 +17,10 @@ public abstract class ShootableFireball : Fireball {
   public float lightFlicker = 20;
 
   public bool modifyVelocityOnImpact = true;
+
+  #if UNITY_EDITOR
   [HideInInspectorIf("showVelocityOnImpact")]
+  #endif
   public Vector3 velocityOnImpact = new Vector3(0, 0, 0);
 
   public bool showVelocityOnImpact() {
@@ -55,17 +58,17 @@ public abstract class ShootableFireball : Fireball {
 
   protected void OnCollisionEnter(Collision collision) {
     if (collision.gameObject.CompareTag("Player")) {
-      Debug.Log("Collided with non-enemy");
+      //Debug.Log("Collided with non-enemy");
       return;
     }
     else {
-      Debug.Log("Normal Collision");
+      //Debug.Log("Normal Collision");
       OnCollisionEnter();
     }
   }
 
   protected void OnCollisionEnter() {
-    Debug.Log("Destroying fireball");
+    //Debug.Log("Destroying fireball");
     Destroy(gameObject, timeToDestruction());
     GetComponent<MeshRenderer>().enabled = !shutDownMeshOnCollision;
     GetComponent<Rigidbody>().velocity = (modifyVelocityOnImpact ? velocityOnImpact : GetComponent<Rigidbody>().velocity);
@@ -98,6 +101,7 @@ public abstract class ShootableFireball : Fireball {
 
   internal override void fireTo(Vector3 target) {
     setTarget(target);
+    transform.parent = null;
     GetComponent<Rigidbody>().velocity = calculateBestThrowSpeed(transform.position, target, shootTime);
     setStatus(FireballStates.SHOT);
   }

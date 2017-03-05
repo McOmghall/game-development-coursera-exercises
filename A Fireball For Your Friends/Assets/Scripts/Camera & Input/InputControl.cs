@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -8,7 +9,6 @@ public class InputControl : MonoBehaviour {
   private Vector3 movementDirection;
   // the world-relative desired move direction, calculated from the camForward and user input.
 
-  private Vector3 camForward; // The current forward direction of the camera
   private bool jump; // whether the jump button is currently pressed
 
   public MovementInputData movementInputData;
@@ -26,11 +26,11 @@ public class InputControl : MonoBehaviour {
   public ExplosiveFireballInputManager explosiveFireballInputManager;
 
   public DebugText debugPosition;
+  public DebugText feedbackPosition;
+
+  private float score = 0;
 
   private void OnValidate() {
-    if (Camera.main == null) {
-      throw new Exception("You need to set a main camera");
-    }
     if (explosiveFireballPrefab == null) {
       throw new Exception("You need to attach an explosive fireball prefab");
     }
@@ -49,8 +49,9 @@ public class InputControl : MonoBehaviour {
     bool fireButtonCheck = CrossPlatformInputManager.GetButton("Fire1");
     bool secondFireButtonCheck = CrossPlatformInputManager.GetButton("Fire2");
 
-    camForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-    movementDirection = (v * camForward + h * Camera.main.transform.right).normalized;
+    Vector3 camForward = Vector3.Scale(Camera.main.transform.up, new Vector3(1, 0, 1)).normalized;
+    Vector3 camRight = Vector3.Scale(Camera.main.transform.right, new Vector3(1, 0, 1)).normalized;
+    movementDirection = (v * camForward + h * camRight).normalized;
     float distanceToHit;
     Ray mouseDirection = Camera.main.ScreenPointToRay(CrossPlatformInputManager.mousePosition);
     if (new Plane(Vector3.up, Vector3.zero).Raycast(mouseDirection, out distanceToHit)) {
@@ -88,6 +89,23 @@ public class InputControl : MonoBehaviour {
 
   private void FixedUpdate() {
     move();
+    feedback();
+  }
+
+  private void feedback() {
+    feedbackPosition.setInfo("Controls", "WASD for movement, mouse for firing");
+
+    Health health = GetComponent<Health>();
+
+    feedbackPosition.setInfo("Health", health.healthAmount.ToString("0000"));
+
+    float timeOfNextNormalShot = Time.time - normalFireballInputManager.timeOfNextShot;
+    float timeOfNextExplosiveShot = Time.time - explosiveFireballInputManager.timeOfNextShot;
+
+    feedbackPosition.setInfo("Normal fire (left mouse)", (timeOfNextNormalShot > 0 ? "NOW" : Math.Abs(timeOfNextNormalShot).ToString("F3") + " s"));
+    feedbackPosition.setInfo("Explosive fire (right mouse)", (timeOfNextExplosiveShot > 0 ? "NOW" : Math.Abs(timeOfNextExplosiveShot).ToString("F3") + " s"));
+
+    feedbackPosition.setInfo("Score", score.ToString("0000"));
   }
 
   public void move() {
@@ -107,6 +125,16 @@ public class InputControl : MonoBehaviour {
 
   public Vector3 getLookAtPosition() {
     return lookAt;
+  }
+
+  public float addScore (float add) {
+    score = score + add;
+    return score;
+  }
+
+  void OnDestroy () {
+    // Restart on death
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
   }
 }
 

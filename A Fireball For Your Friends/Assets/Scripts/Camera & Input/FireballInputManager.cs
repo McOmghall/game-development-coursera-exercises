@@ -5,7 +5,7 @@ public abstract class FireballInputManager {
   public float timeBetweenShots = 2;
 
   private Fireball managedFireball;
-  protected float timeOfNextShot = float.MinValue;
+  public float timeOfNextShot = float.MinValue;
 
   public DebugText debugPosition;
 
