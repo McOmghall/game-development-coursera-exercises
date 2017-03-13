@@ -4,16 +4,19 @@ using System.Collections;
 
 public class MoveBetweenPoints : MonoBehaviour {
     public float movementSpeedPerSecond = 10f;
-    public float growScaleSpeedPerSecond = 2;
+    public float growScaleTotal = 2;
     public float rotateSpeedDegreesPerSecond = 90;
     public Vector3[] stopPoints = { new Vector3(-20.0f, 0f, 0f), new Vector3(-20f, 0f, 20f), new Vector3(20f, 0f, 20f), new Vector3(20f, 0f, 0f) };
     public float precisionThreshold = 0.1f;
     private MovementStates state = MovementStates.STARTING;
+    private Vector3 initialScale;
 
-	void Start () {
+    void Start () {
 	    if (stopPoints == null || stopPoints.Length != 4) {
             throw new Exception("Stop Points array needs to have 4 elements");
         }
+
+        initialScale = transform.localScale;
 	}
 
 	void Update () {
@@ -26,12 +29,12 @@ public class MoveBetweenPoints : MonoBehaviour {
                 break;
             case MovementStates.GROWING:
                 currentTarget = stopPoints[1];
-                transform.localScale = transform.localScale + transform.localScale * growScaleSpeedPerSecond * Time.deltaTime;
+                transform.localScale = initialScale * Mathf.Lerp(growScaleTotal, 1, (Vector3.Distance(transform.position, stopPoints[1]) / Vector3.Distance(stopPoints[0], stopPoints[1])));
                 nextState = MovementStates.SHRINKING;
                 break;
             case MovementStates.SHRINKING:
                 currentTarget = stopPoints[2];
-                transform.localScale = transform.localScale - transform.localScale * growScaleSpeedPerSecond * Time.deltaTime;
+                transform.localScale = initialScale * Mathf.Lerp(1, growScaleTotal, (Vector3.Distance(transform.position, stopPoints[2]) / Vector3.Distance(stopPoints[1], stopPoints[2])));
                 nextState = MovementStates.ROTATING;
                 break;
             case MovementStates.ROTATING:
